@@ -7,16 +7,23 @@
 	<h2>{{testArray}}</h2>
 
 	{{# each msg}}
-		<hr>
+		<!-- <hr>
 		<h2>Text:{{this.n}}</h2>
 		<hr>
+ -->
+	{{ > message number=this.n text=this.text
 
-	<!-- {{ > message text=this}} -->
+
+	}}
 	
  	{{/each }}
 
 	<!-- <hr>
-	{{> message number = 1 text = "hi text1 (m1)"}}
+	{{> message number = 1 text = "hi text1 (m1)"}}, 
+		text=this.text
+
+
+
 	<hr>
 	{{> message number = 2 text = "hi text2 (m2)"}}
 	<hr> 
