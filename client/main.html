@@ -4,45 +4,27 @@
 
 
 <body>
-	<h2>{{testArray}}</h2>
-	<h2>{{testObject.testOB}}</h2>
-	<h2>testData = {{testDate}}</h2>
-
 
 	{{# each msg}}
-		<!-- <hr>
-		<h2>Text:{{this.n}}</h2>
-		<hr>
- -->
-	{{ > message number=this.n text=this.text
+	
+		{{ > message number=this.n 
+		             text=this.text
 
-
-	}}
+		}}
 	
  	{{/each }}
 
-	<!-- <hr>
-	{{> message number = 1 text = "hi text1 (m1)"}}, 
-		text=this.text
-
-
-
-	<hr>
-	{{> message number = 2 text = "hi text2 (m2)"}}
-	<hr> 
-	{{> message number = 3 text = "hi text3 (m3)"}}
-	<hr>
-	{{> message number = 4 text = "hi text4 (m4)"}}
-	<hr> -->
 </body>
 
 
 <template name ="message">
 	<hr>
+	{{# if number}}
 	<h2>Number:{{number}} </h2>
+	{{/if}}
+	
 	<h2>Text:{{text}}</h2>
-	<p>(by message)</p>
-	<p>{{test}}</p>
+	<p>(by message template)</p>
 	<hr>
 
 </template>
