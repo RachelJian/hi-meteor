@@ -8,6 +8,9 @@ if (Meteor.isClient){
 
 	Template.body.helpers({
 		testArray: _.range(0,10),
+		testObject:{testOB:"test~"
+		},
+		testDate : new Date,
 		msg: [
 			 {n:1,text:"hi text1 (m1)"},
 			 {n:2,text:"hi text2 (m2)"},
