@@ -8,10 +8,12 @@ if (Meteor.isClient){
 
 	Template.body.helpers({
 		testArray: _.range(0,10),
-		msg: ["hi text1 (m1)",
-			 "hi text2 (m2)",
-			 "hi text3 (m3)",
-			 "hi text4 (m4)"]
+		msg: [
+			 {n:1,text:"hi text1 (m1)"},
+			 {n:2,text:"hi text2 (m2)"},
+			 {n:3,text:"hi text3 (m3)"},
+			 {n:4,text:"hi text4 (m4)"}
+			 ]
 
 	})
 }
