@@ -1,17 +1,17 @@
 console.log("this is both sides");
 Message = new Mongo.Collection("message");
+
 sampleMessages = [
-	{text:"hi text1 (m1)"},
-	{text:"hi text2 (m2)"},
-	{text:"hi text3 (m3)"},
-	{text:"hi text4 (m4)"}
+	{text:"hi text1 (m1)",from:"db"},
+	{text:"hi text2 (m2)",from:"db"},
+	{text:"hi text3 (m3)",from:"db"},
+	{text:"hi text4 (m4)",from:"db"}
 	 ]
+
 
 if (Meteor.isClient){
 	console.log("this is client");
-	Template.message.helpers({
-		test:"testtest"
-	})
+	
 
 	Template.body.helpers({
 		msg:sampleMessages
@@ -26,5 +26,15 @@ if (Meteor.isClient){
 }
 
 if (Meteor.isServer){
-	console.log("this is server");
+ 	console.log("this is server");
+ 	if (Message.find().count() === 0){
+		for (i in sampleMessages){
+		  Message.insert(sampleMessages[i]);
+		} 
+	}
+
 }
+
+
+
+
