@@ -14,7 +14,12 @@ if (Meteor.isClient){
 	
 
 	Template.body.helpers({
-		msg:sampleMessages
+		msg: function(){
+			return(Message.find())
+
+
+		}
+		// msg:sampleMessages
 		// msg: [
 		// 	 {n:1,text:"hi text1 (m1)"},
 		// 	 {n:2,text:"hi text2 (m2)"},
