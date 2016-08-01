@@ -19,7 +19,7 @@ if (Meteor.isClient){
 
 
 		}
-		// msg:sampleMessages
+		
 		// msg: [
 		// 	 {n:1,text:"hi text1 (m1)"},
 		// 	 {n:2,text:"hi text2 (m2)"},
@@ -28,6 +28,26 @@ if (Meteor.isClient){
 		// 	 ]
 
 	})
+		Template.body.events({
+			"change #inputMsg": function(e,t){
+
+				console.log("change #inputMsg");
+				console.log($(e.target).val());
+				msg = $(e.target).val();
+				$(e.target).val("");
+				msgData = {
+					text:msg,
+					createAt: new Date,
+				};
+				console.log(msgData);
+				Message.insert(msgData);
+
+				
+
+
+			}
+		})
+
 }
 
 if (Meteor.isServer){
