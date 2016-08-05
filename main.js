@@ -28,17 +28,21 @@ if (Meteor.isClient){
 	})
 		Template.body.events({
 			"change #inputMsg": function(e,t){
-
-				// console.log("change #inputMsg");
-				// console.log($(e.target).val());
 				
 				msg = $(e.target).val();
-				$(e.target).val("");
+				usr = $("#inputUsr").val();
+
+				if (!usr) {
+					usr = "Anonymous";
+				}
+
+				$("form > input").val("");
+				
 				msgData = {
 					text:msg,
+					user:usr,
 					createdAt: new Date,
 				};
-				// console.log(msgData);
 				Message.insert(msgData);
 
 			}

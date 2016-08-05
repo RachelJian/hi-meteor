@@ -5,14 +5,20 @@
 
 <body>
 	<hr>
+	<form>
+	User:<input id="inputUsr"/>
+	<br>
+	<br>
 	Message:<input id="inputMsg"/>
 	<hr>
-
+	</form>
+	
 	{{# each msg}}
 	
 		{{ > message number=this.n 
 		             text=this.text
 		             from=this.from
+		             user=this.user 
 
 		}}
 	
@@ -27,6 +33,10 @@
 	<h2>Number:{{number}} </h2>
 	{{/if}}
 	
+	{{# if user}}
+	<h2>Usr:{{user}} </h2>
+	{{/if}}
+
 	<h2>Text:{{text}}</h2>
 	<p>(by message template)</p>
 
